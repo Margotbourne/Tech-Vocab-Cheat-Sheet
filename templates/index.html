@@ -1,15 +1,67 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>MakersBnB</title>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechTerm Tracker</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <main class="container">
+        <h1>🚀 TechTerm Tracker</h1>
+        <p class="subtitle">Your daily conversational vocab cheat sheet for tech interviews.</p>
+        
+        <section class="form-container">
+            <h2>➕ Add New Tech Term</h2>
+            <form action="/add-term" method="POST">
+                <div class="form-group-row">
+                    <div class="form-group">
+                        <label for="topic">Topic Category</label>
+                        <select name="topic" id="topic" required>
+                            <option value="Backend">Backend</option>
+                            <option value="Frontend">Frontend</option>
+                            <option value="Database">Database</option>
+                            <option value="DevOps">DevOps</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="concept_name">Concept Name</label>
+                        <input type="text" name="concept_name" id="concept_name" placeholder="e.g., Redis" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="analogy">The Analogy</label>
+                    <textarea name="analogy" id="analogy" rows="2" placeholder="Explain it like I am 5..." required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="key_notes">Key Interview Notes</label>
+                    <textarea name="key_notes" id="key_notes" rows="2" placeholder="Technical definition or things Lloyds looks for..." required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">Save Flashcard</button>
+            </form>
+        </section>
 
-        <!--
-            Head to https://github.com/makersacademy/web-applications-in-python/blob/main/pills/loading_css_or_static_files.md
-            If you're wondering how the CSS file below is being loaded.
-        -->
-        <link rel="stylesheet" href="/static/style.css" >
-    </head>
-    <body>
-        <p>This is the homepage.</p>
-    </body>
+        <div class="flashcard-grid">
+            {% for term in terms %}
+                <div class="flashcard">
+                    <span class="tag">{{ term.topic }}</span>
+                    <h2>{{ term.concept_name }}</h2>
+                    
+                    <div class="section">
+                        <h3>💡 The Analogy</h3>
+                        <p>{{ term.analogy }}</p>
+                    </div>
+                    
+                    <div class="section">
+                        <h3>📝 Key Notes</h3>
+                        <p>{{ term.key_notes }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </main>
+</body>
 </html>
