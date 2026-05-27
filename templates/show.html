@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ term.concept_name }} - Deep Dive Notes</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <main class="container single-term-container">
+        <a href="/" class="back-btn">← Back to Dashboard</a>
+        
+        <header class="term-header">
+            <span class="tag">{{ term.topic }}</span>
+            <h1>{{ term.concept_name }}</h1>
+        </header>
+
+        <section class="notes-block">
+            <h2>💡 The Analogy Masterclass</h2>
+            <p class="large-text">{{ term.analogy }}</p>
+        </section>
+
+        <section class="notes-block">
+            <h2>📝 Core Interview Takeaways</h2>
+            <p>{{ term.key_notes }}</p>
+        </section>
+
+       <section class="notes-block technical-deep-dive">
+    <h2>🔬 Technical Deep Dive & Code Context</h2>
+    <p class="large-text">{{ term.deep_dive }}</p> </section>
+    
+    </main>
+</body>
+</html>

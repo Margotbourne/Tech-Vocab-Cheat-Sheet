@@ -33,15 +33,31 @@ def add_term():
     concept_name = request.form.get('concept_name')
     analogy = request.form.get('analogy')
     key_notes = request.form.get('key_notes')
-    
+    deep_dive = request.form.get('deep_dive')
     connection = get_flask_database_connection(app)
     
     query = """
-        INSERT INTO tech_terms (topic, concept_name, analogy, key_notes)
-        VALUES (%s, %s, %s, %s);
+        INSERT INTO tech_terms (topic, concept_name, analogy, key_notes, deep_dive)
+        VALUES (%s, %s, %s, %s, %s);
     """
-    connection.execute(query, [topic, concept_name, analogy, key_notes])
+    connection.execute(query, [topic, concept_name, analogy, key_notes, deep_dive])
     return redirect(url_for('get_index'))
+
+@app.route('/term/<int:term_id>', methods=['GET'])
+def get_single_term(term_id):
+    connection = get_flask_database_connection(app)
+    
+    # Selecting everything handles pulling our new deep_dive column
+    query = "SELECT * FROM tech_terms WHERE id = %s;"
+    result = connection.execute(query, [term_id])
+    
+    if not result:
+        return "Flashcard not found!", 404
+        
+    single_term = result[0]
+    return render_template('show.html', term=single_term)
+
+
 
 # These lines start the server if you run this file directly
 # They also start the server configured to use the test database

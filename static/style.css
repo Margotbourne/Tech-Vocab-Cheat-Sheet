@@ -159,3 +159,59 @@ h1 {
 .submit-btn:hover {
     background-color: #1d4ed8;
 }
+
+/* Card Footer Link Layout */
+.card-footer {
+    margin-top: auto;
+    padding-top: 1.25rem;
+    border-top: 1px dashed #e2e8f0;
+}
+
+.notes-link {
+    color: #2563eb;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.notes-link:hover {
+    text-decoration: underline;
+}
+
+/* Individual Term Page Styles */
+.single-term-container {
+    max-width: 800px;
+    padding-top: 3rem;
+}
+
+.back-btn {
+    display: inline-block;
+    color: #64748b;
+    text-decoration: none;
+    font-weight: 500;
+    margin-bottom: 2rem;
+}
+
+.back-btn:hover {
+    color: #0f172a;
+}
+
+.notes-block {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border: 1px solid #e2e8f0;
+}
+
+.notes-block h2 {
+    font-size: 1.1rem;
+    color: #475569;
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.large-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
