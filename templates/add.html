@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Tech Term - Tracker Jacker</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <main class="container single-term-container">
+        <a href="/" class="back-btn">← Back to Dashboard</a>
+
+        <section class="form-container">
+            <h2>➕ Add Tech Term</h2>
+            <form action="/add" method="POST">
+                <div class="form-group-row">
+                    <div class="form-group">
+                        <label for="topic">Topic Category</label>
+                        <select name="topic" id="topic" required>
+                            <option value="Backend">Backend</option>
+                            <option value="Frontend">Frontend</option>
+                            <option value="Database">Database</option>
+                            <option value="DevOps">DevOps</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="concept_name">Concept Name</label>
+                        <input type="text" name="concept_name" id="concept_name" placeholder="e.g., Redis" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="analogy">The Analogy</label>
+                    <textarea name="analogy" id="analogy" rows="2" placeholder="Explain it like I am 5..." required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="key_notes">Key Notes</label>
+                    <textarea name="key_notes" id="key_notes" rows="2" placeholder="Technical definition or things Lloyds looks for..." required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="deep_dive">Technical Deep Dive & Code Context</label>
+                    <textarea name="deep_dive" id="deep_dive" rows="5" placeholder="Paste full mentor explanations, event execution details, or step-by-step browser rendering phases here..." required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Save Flashcard</button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

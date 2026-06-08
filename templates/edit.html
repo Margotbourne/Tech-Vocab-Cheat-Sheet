@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit - {{ term.concept_name }}</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <main class="container">
+        <a href="/term/{{ term.id }}" class="back-btn">← Cancel and Go Back</a>
+        
+        <section class="form-container">
+            <h2>Edit Flashcard: {{ term.concept_name }}</h2>
+            
+            <form action="/term/{{ term.id }}/update" method="POST">
+                <div class="form-group-row">
+                    <div class="form-group">
+                        <label for="topic">Topic Category</label>
+                        <select name="topic" id="topic" required>
+                            <option value="Backend" {% if term.topic == 'Backend' %}selected{% endif %}>Backend</option>
+                            <option value="Frontend" {% if term.topic == 'Frontend' %}selected{% endif %}>Frontend</option>
+                            <option value="Database" {% if term.topic == 'Database' %}selected{% endif %}>Database</option>
+                            <option value="DevOps" {% if term.topic == 'DevOps' %}selected{% endif %}>DevOps</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="concept_name">Concept Name</label>
+                        <input type="text" name="concept_name" id="concept_name" value="{{ term.concept_name }}" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="analogy">The Analogy</label>
+                    <textarea name="analogy" id="analogy" rows="3" required>{{ term.analogy }}</textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="key_notes">Key Interview Notes</label>
+                    <textarea name="key_notes" id="key_notes" rows="2" required>{{ term.key_notes }}</textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="deep_dive">Technical Deep Dive & Code Context</label>
+                    <textarea name="deep_dive" id="deep_dive" rows="6" required>{{ term.deep_dive }}</textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">Update Flashcard</button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

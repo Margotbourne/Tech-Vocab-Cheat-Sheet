@@ -5,52 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TechTerm Tracker</title>
     <link rel="stylesheet" href="/static/style.css">
+    <style>
+        /* Small helper style for your navigation link */
+        .nav-links { list-style: none; padding: 0; margin-bottom: 2rem; }
+        .add-link { display: inline-block; background-color: #3b82f6; color: #fff; padding: 0.6rem 1.2rem; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.95rem; }
+        .add-link:hover { background-color: #2563eb; }
+    </style>
 </head>
 <body>
     <main class="container">
-        <h1>🚀 TechTerm Tracker</h1>
-        <p class="subtitle">Your daily conversational vocab cheat sheet for tech interviews.</p>
+        <h1>Tracker Jacker</h1>
+        <p class="subtitle">Tech Vocab Cheat Sheet</p>
+
+        <ul class="nav-links">
+            <li><a href="/add" class="add-link">➕ Add Term</a></li>
+        </ul>
         
-        <p class="subtitle">Your daily conversational vocab cheat sheet for tech interviews.</p>
-        
-        <section class="form-container">
-            <h2>➕ Add New Tech Term</h2>
-            <form action="/add-term" method="POST">
-                <div class="form-group-row">
-                    <div class="form-group">
-                        <label for="topic">Topic Category</label>
-                        <select name="topic" id="topic" required>
-                            <option value="Backend">Backend</option>
-                            <option value="Frontend">Frontend</option>
-                            <option value="Database">Database</option>
-                            <option value="DevOps">DevOps</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="concept_name">Concept Name</label>
-                        <input type="text" name="concept_name" id="concept_name" placeholder="e.g., Redis" required>
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="analogy">The Analogy</label>
-                    <textarea name="analogy" id="analogy" rows="2" placeholder="Explain it like I am 5..." required></textarea>
-                </div>
-                
-                <div class="form-group">
-                    <label for="key_notes">Key Interview Notes</label>
-                    <textarea name="key_notes" id="key_notes" rows="2" placeholder="Technical definition or things Lloyds looks for..." required></textarea>
-                </div>
-                
-                <div class="form-group">
-                    <label for="deep_dive">🔬 Technical Deep Dive & Code Context</label>
-                    <textarea name="deep_dive" id="deep_dive" rows="5" placeholder="Paste full mentor explanations, event execution details, or step-by-step browser rendering phases here..." required></textarea>
-                </div>
-                
-                <button type="submit" class="submit-btn">Save Flashcard</button>
-            </form>
-        </section>
-        ```
         <div class="flashcard-grid">
             {% for term in terms %}
                 <div class="flashcard">
@@ -58,17 +28,17 @@
                     <h2>{{ term.concept_name }}</h2>
                     
                     <div class="section">
-                        <h3>💡 The Analogy</h3>
+                        <h3>The Analogy</h3>
                         <p>{{ term.analogy }}</p>
                     </div>
                     
                     <div class="section">
-                        <h3>📝 Key Notes</h3>
+                        <h3>Key Notes</h3>
                         <p>{{ term.key_notes }}</p>
                     </div>
 
                     <div class="card-footer">
-                        <a href="/term/{{ term.id }}" class="notes-link">📖 Read Full Study Notes →</a>
+                        <a href="/term/{{ term.id }}" class="notes-link">Read Full Study Notes →</a>
                     </div>
                 </div>
             {% endfor %}
