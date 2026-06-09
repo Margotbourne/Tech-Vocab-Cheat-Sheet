@@ -1,41 +1,76 @@
-# MakersBnB Python Project Seed
+# Tech Vocab Cheat Sheet
 
-This repo contains the seed codebase for the MakersBnB project in Python (using 
-Flask and Pytest).
+A custom flashcard application built using Python, Flask, and PostgreSQL to track, review, and deep-dive into complex technical terminology and engineering concepts.
 
-Someone in your team should fork this seed repo to their GitHub account.
-Everyone in the team should then clone this fork to their local machine to work on it.
+---
 
-> NOTE: If you encounter a `ModuleNotFound` error, deactivate and then reactivate your virtual env. If that doesn't help, please reach out to your coach.
+## 🚀 Tech Stack
 
-## Setup
+* **Backend:** Python, Flask
+* **Database:** PostgreSQL
+* **Testing:** Pytest (with Playwright for end-to-end testing)
+* **Frontend:** HTML, CSS (Responsive Design)
+
+---
+
+## 🛠️ Features
+
+* **Custom Flashcard Tracking:** Create, read, update, and delete technical vocabulary terms.
+* **Deep Dive Notes:** Dedicated pages and structured notes for deeper architectural or programmatic context on each term.
+* **Interactive Study Mode:** A built-in study interface to test and reinforce your retention of tech terms.
+
+---
+
+## ⚙️ Project Setup
+
+Follow these steps to get the development environment running locally.
+
+### 1. Environment & Dependencies
+Set up your Python virtual environment and install the required packages:
 
 ```shell
-# Set up the virtual environment
-; python -m venv makersbnb-venv
+# Create the virtual environment
+python -m venv venv
 
 # Activate the virtual environment
-; source makersbnb-venv/bin/activate 
+source venv/bin/activate 
 
 # Install dependencies
-(makersbnb-venv); pip install -r requirements.txt
+pip install -r requirements.txt
 
-# Install the virtual browser we will use for testing
-(makersbnb-venv); playwright install
-# If you have problems with the above, contact your coach
-
-# Create a test and development database
-(makersbnb-venv); createdb YOUR_PROJECT_NAME
-(makersbnb-venv); createdb YOUR_PROJECT_NAME_TEST
-
-# Open lib/database_connection.py and change the database names
-(makersbnb-venv); open lib/database_connection.py
-
-# Run the tests (with extra logging)
-(makersbnb-venv); pytest -sv
-
-# Run the app
-(makersbnb-venv); python app.py
-
-# Now visit http://localhost:5001/index in your browser
+# Install the virtual browser used for integration testing
+playwright install
 ```
+
+### 2. Database Configuration
+Create your local PostgreSQL development and testing databases:
+
+```shell
+createdb tech_vocab_tracker
+createdb tech_vocab_tracker_test
+```
+
+> ⚠️ **Important:** Open `lib/database_connection.py` and ensure the database names are updated to match `tech_vocab_tracker` and `tech_vocab_tracker_test`.
+
+### 3. Database Seeding
+Populate your database schema and initial flashcard seed data:
+
+```shell
+python seeds/seed_database.py
+```
+
+### 4. Running Tests
+Run the test suite with verbose logging to ensure everything is configured correctly:
+
+```shell
+pytest -sv
+```
+
+### 5. Launch the Application
+Fire up the local Flask server:
+
+```shell
+python app.py
+```
+
+Now, open your browser and navigate to **`http://localhost:5001/`** to start studying!
