@@ -46,11 +46,11 @@ playwright install
 Create your local PostgreSQL development and testing databases:
 
 ```shell
-createdb tech_vocab_tracker
-createdb tech_vocab_tracker_test
+createdb Vocab_Cheat_Sheet
+createdb tVocab_Cheat_Sheet_Test
 ```
 
-> ⚠️ **Important:** Open `lib/database_connection.py` and ensure the database names are updated to match `tech_vocab_tracker` and `tech_vocab_tracker_test`.
+> ⚠️ **Important:** Open `lib/database_connection.py`
 
 ### 3. Database Seeding
 Populate your database schema and initial flashcard seed data:
