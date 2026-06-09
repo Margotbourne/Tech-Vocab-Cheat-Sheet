@@ -83,8 +83,22 @@ def update_single_term(term_id):
 
 
 
-
-
+@app.route('/study', methods=['GET'])
+def study_mode():
+    connection = get_flask_database_connection(app)
+    
+    # Let PostgreSQL pick 1 random row from your table!
+    query = "SELECT * FROM tech_terms ORDER BY RANDOM() LIMIT 1;"
+    result = connection.execute(query)
+    
+    # If you haven't added any cards yet, show a clean helper message
+    if not result:
+        return "Your flashcard deck is empty! Add some cards on your homepage first."
+        
+    # Grab the single random row returned by the database
+    random_term = result[0]
+    
+    return render_template('study.html', term=random_term)
 
 
 if __name__ == '__main__':

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Study Mode</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="container study-wrapper">
+        
+        <div style="width: 100%; max-width: 550px; text-align: left;">
+            <a href="/" class="back-btn">◀ Back to Dashboard</a>
+        </div>
+
+        <div class="study-card">
+            <span class="tag">{{ term.topic }}</span>
+            <h2>{{ term.concept_name }}</h2>
+            
+            <div id="answer-box" class="study-reveal-block" style="display: none;">
+                <div class="section">
+                    <h3>💡 Analogy</h3>
+                    <p>{{ term.analogy }}</p>
+                </div>
+                
+                <div class="section" style="margin-top: 1rem;">
+                    <h3>📝 Key Notes</h3>
+                    <p>{{ term.key_notes }}</p>
+                </div>
+                
+                <div class="section" style="margin-top: 1rem;">
+                    <h3>🧠 Deep Dive</h3>
+                    <p>{{ term.deep_dive }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="study-controls">
+            <a href="/study" class="study-btn study-btn-arrow">◀ Left</a>
+            <button onclick="document.getElementById('answer-box').style.display = 'block'" class="study-btn">👁 Reveal Info</button>
+            <a href="/study" class="study-btn study-btn-arrow">Right ▶</a>
+        </div>
+
+    </div>
+
+</body>
+</html>

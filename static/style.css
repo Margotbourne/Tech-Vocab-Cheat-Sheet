@@ -72,10 +72,24 @@ h1 {
 
 
 /* ==========================================================================
-   INDEX PAGE 
+   INDEX PAGE & HEADER CONTROLS
    ========================================================================== */
 
-/* The Flashcard Grid */
+/* Top level horizontal navigation container */
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+    padding: 0;
+    justify-content: center;
+    margin-bottom: 3rem;
+}
+
+.nav-links li {
+    margin: 0;
+}
+
+/* The Flashcard Grid layout structural settings */
 .flashcard-grid {
     column-count: 3;       
     column-gap: 2.5rem;      
@@ -96,7 +110,6 @@ h1 {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08); 
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 
 .flashcard:hover {
     transform: translateY(-5px);
@@ -299,6 +312,97 @@ h1 {
 
 .submit-btn:active {
     transform: translateY(1px);
+}
+
+
+/* ==========================================================================
+   STUDY MODE LAYOUT
+   ========================================================================== */
+
+/* Layout frame wrapper targeting the standalone study scene view */
+.study-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 70vh;
+    padding-top: 1rem;
+}
+
+.study-back-link-box {
+    width: 100%;
+    max-width: 550px;
+    text-align: left;
+}
+
+/* Card frame setup scaled purposefully for reviewing definitions */
+.study-card {
+    background: #faf8f5;
+    border-radius: 4px;
+    padding: 3rem 2.5rem;
+    border: 12px solid #dcd1be;
+    width: 100%;
+    max-width: 550px;
+    box-shadow: 0 15px 35px rgba(22, 46, 61, 0.08);
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.study-card h2 {
+    font-size: 2.2rem;
+    font-weight: 400;
+    margin: 0 0 1.5rem 0;
+    color: #162e3d;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Content block targeting the revealed details criteria data fields */
+.study-reveal-block {
+    border-top: 1px solid #dcd1be;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    text-align: left;
+}
+
+/* Action bar controller wrapper managing interaction targets */
+.study-controls {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+    align-items: center;
+}
+
+/* Action button design specifications aligning with standard form actions */
+.study-btn {
+    display: inline-block;
+    background-color: #4a6b82;
+    color: #ffffff;
+    border: none;
+    padding: 0.85rem 1.75rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(74, 107, 130, 0.1);
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.study-btn:hover {
+    background-color: #385367;
+}
+
+/* Context alternative targeting side scroll directional elements */
+.study-btn-arrow {
+    background-color: #69827c;
+}
+
+.study-btn-arrow:hover {
+    background-color: #536964;
 }
 
 
