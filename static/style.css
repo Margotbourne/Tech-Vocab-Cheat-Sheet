@@ -1,11 +1,13 @@
-/* Base settings */
+/* ==========================================================================
+   GLOBAL BASE SETTINGS & THEME CORES 
+   ========================================================================== */
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background-color: #f5b700; 
-    /* Deep earthy espresso shadow text for strong definition */
-    color: #211305; 
+    font-family: "Georgia", serif; 
+    background-color: #f4ede2; 
+    color: #1c2d37; 
     margin: 0;
     padding: 2rem 1rem;
+    letter-spacing: 0.02em;
 }
 
 .container {
@@ -15,75 +17,102 @@ body {
 
 h1 {
     font-size: 2.8rem;
-    font-weight: 900;
-    color: #27632a; 
+    font-weight: 400; 
+    color: #162e3d; 
     margin-bottom: 0.25rem;
     text-transform: uppercase;
-    letter-spacing: -0.01em;
-    text-shadow: 3px 3px 0px #ffffff; 
+    letter-spacing: 0.1em;
+    text-align: center;
 }
 
 .subtitle {
     font-size: 1.15rem;
-    font-weight: 700;
-    color: #1e6091; 
+    font-weight: 400;
+    font-style: italic;
+    color: #5c7479; 
     margin-bottom: 3rem;
-    text-transform: uppercase;
+    text-transform: lowercase;
+    text-align: center;
 }
+
+/* Global Navigation & Back Buttons */
+.back-btn {
+    display: inline-block;
+    color: #4a6b82; 
+    text-decoration: none;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    margin-right: 1.5rem;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    transition: color 0.2s ease;
+}
+
+.back-btn:hover {
+    color: #8da499; 
+}
+
+/* Global UI Element: Classification Tags */
+.tag {
+    display: inline-block;
+    align-self: flex-start;
+    background-color: #e5ccd3; 
+    color: #4a3b40; 
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.35rem 0.85rem;
+    border-radius: 4px;
+    border: none; 
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1.25rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05); 
+}
+
+
+/* ==========================================================================
+   INDEX PAGE 
+   ========================================================================== */
 
 /* The Flashcard Grid */
 .flashcard-grid {
     column-count: 3;       
-    column-gap: 2rem;      
+    column-gap: 2.5rem;      
     width: 100%;
 }
 
-/* Individual Flashcard */
+/* Individual Flashcard Structure */
 .flashcard {
-    background: #e63980; 
-    border-radius: 16px;
-    padding: 1.5rem;
-    box-shadow: 8px 8px 0px 0px #211305;
-    border: 3px solid #211305; /* Thick block-art outline */
+    background: #faf8f5; 
+    border-radius: 4px; 
+    padding: 1.75rem;
+    border: 12px solid #dcd1be; 
     position: relative;
     display: flex;
     flex-direction: column;
     break-inside: avoid;   
-    margin-bottom: 2rem;   
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    margin-bottom: 2.5rem;   
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 
 .flashcard:hover {
-    transform: translate(-4px, -4px);
-    box-shadow: 12px 12px 0px 0px #211305;
-}
-
-/* Category Label */
-.tag {
-    display: inline-block;
-    align-self: flex-start;
-    background-color: #27632a;
-    color: #ffffff; 
-    font-size: 0.8rem;
-    font-weight: 800;
-    padding: 0.35rem 0.85rem;
-    border-radius: 6px;
-    border: 2px solid #ffffff;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-bottom: 1.25rem;
-    box-shadow: 2px 2px 0px #211305;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(22, 46, 61, 0.15);
 }
 
 .flashcard h2 {
-    font-size: 1.7rem;
-    font-weight: 900;
+    font-size: 1.5rem;
+    font-weight: 500;
     margin: 0 0 1.25rem 0;
-    color: #ffffff; 
-    text-shadow: 2px 2px 0px #211305;
+    color: #162e3d; 
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
 }
 
-/* Content Blocks */
+/* Card Section Blocks */
 .section {
     margin-bottom: 1.25rem;
 }
@@ -93,39 +122,114 @@ h1 {
 }
 
 .section h3 {
-    font-size: 0.875rem;
+    font-size: 0.8rem;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: #ffffff; 
-    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: #69827c; 
+    font-weight: 600;
     margin: 0 0 0.5rem 0;
-    text-shadow: 1px 1px 0px #211305;
 }
 
 .section p {
     font-size: 0.95rem;
-    line-height: 1.5;
+    line-height: 1.6;
     margin: 0;
-    color: #070706; 
+    color: #4a555a; 
 }
+
+/* Card Footer Link Layout */
+.card-footer {
+    margin-top: auto;
+    padding-top: 1.25rem;
+}
+
+.notes-link {
+    color: #4a6b82; 
+    text-decoration: underline;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.notes-link:hover {
+    color: #9bb5b2; 
+}
+
+
+/* ==========================================================================
+   SHOW PAGE
+   ========================================================================== */
+
+.single-term-container {
+    max-width: 800px;
+    padding-top: 2rem;
+}
+
+.term-header {
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+/* The Content Display Blocks */
+.notes-block {
+    background: #faf8f5;
+    border-radius: 4px;
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    border: 12px solid #dcd1be;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+/* Titles inside the content blocks */
+.notes-block h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #162e3d;
+    margin-top: 0;
+    margin-bottom: 1.25rem;
+}
+
+/* Text inside the details blocks */
+.notes-block p,
+.large-text {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin: 0;
+    color: #4a555a; 
+    font-weight: 400;
+}
+
+/* Technical context adjustments */
+.technical-deep-dive {
+    background-color: #f1f5f4; 
+}
+
+
+/* ==========================================================================
+   ADD AND EDIT PAGE
+   ========================================================================== */
 
 /* Form Wrapper Styling */
 .form-container {
-    background: #fdf0d5; 
-    border-radius: 20px;
-    padding: 2rem;
+    background: #faf8f5;
+    border-radius: 8px;
+    padding: 2.5rem;
     margin-bottom: 3rem;
-    box-shadow: 10px 10px 0px 0px #211305;
-    border: 4px solid #211305; 
+    box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+    border: 1px solid #dcd1be; 
 }
 
 .form-container h2 {
-    font-size: 1.5rem;
-    font-weight: 900;
+    font-size: 1.4rem;
+    font-weight: 500;
     margin-top: 0;
     margin-bottom: 1.5rem;
-    color: #e63980;
+    color: #162e3d; 
     text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 .form-group-row {
@@ -142,76 +246,77 @@ h1 {
 }
 
 .form-group label {
-    font-size: 0.85rem;
-    font-weight: 800;
-    color: #27632a;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #5c7479;
     margin-bottom: 0.5rem;
     text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 .form-group input, 
 .form-group select, 
 .form-group textarea {
     padding: 0.75rem;
-    border: 3px solid #211305;
-    border-radius: 8px;
+    border: 1px solid #c5d3d1; 
+    border-radius: 4px;
     font-family: inherit;
     font-size: 0.95rem;
     background-color: #ffffff; 
-    color: #211305;
-    font-weight: 600;
+    color: #1c2d37;
 }
 
 .form-group input:focus, 
+.form-group select:focus,
 .form-group textarea:focus {
     outline: none;
-    background-color: #fffbdf; 
+    border-color: #4a6b82;
+    background-color: #f7fafb; 
 }
 
-/* Save Button */
+/* Interactive Action Buttons */
 .submit-btn {
-    background-color: #27632a;
+    display: inline-block;
+    background-color: #4a6b82; 
     color: #ffffff;
-    border: 3px solid #211305;
-    padding: 0.85rem 1.75rem;
-    font-size: 1rem;
-    font-weight: 900;
-    border-radius: 8px;
+    border: none;
+    padding: 0.85rem 2rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 4px;
     cursor: pointer;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    box-shadow: 0 5px 0px #211305; 
-    transition: transform 0.1s ease, box-shadow 0.1s ease;
+    text-align: center;
+    letter-spacing: 0.08em;
+    box-shadow: 0 4px 10px rgba(74, 107, 130, 0.2);
+    transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
 .submit-btn:hover {
-    background-color: #358f2a;
-    transform: translateY(-2px);
-    box-shadow: 0 7px 0px #211305;
+    background-color: #385367;
+    transform: translateY(-1px);
 }
 
 .submit-btn:active {
-    transform: translateY(4px);
-    box-shadow: 0 1px 0px #211305;
+    transform: translateY(1px);
 }
 
-/* Card Footer Link Layout */
-.card-footer {
-    margin-top: auto;
-    padding-top: 1.25rem;
+
+/* ==========================================================================
+   RESPONSIVE DESIGN RULES
+   ========================================================================== */
+@media (max-width: 900px) {
+    .flashcard-grid {
+        column-count: 2; 
+    }
 }
 
-.notes-link {
-    color: #ffffff; 
-    text-decoration: underline;
-    font-size: 0.95rem;
-    font-weight: 800;
+@media (max-width: 600px) {
+    .flashcard-grid {
+        column-count: 1; 
+    }
+    .form-group-row {
+        flex-direction: column;
+        gap: 0;
+    }
 }
-
-.notes-link:hover {
-    color: #fdf0d5; 
-}
-
-/* Responsive adjustments */
-@media (max-width: 900px) { .flashcard-grid { column-count: 2; } }
-@media (max-width: 600px) { .flashcard-grid { column-count: 1; } }
